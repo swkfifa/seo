@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Meta Description Generator</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+        textarea { width: 80%; height: 100px; margin: 10px; }
+        button { padding: 10px 20px; cursor: pointer; }
+        #output { margin-top: 20px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>AI Meta Description & Title Generator</h1>
+    <p>Enter your topic, and AI will generate an SEO-friendly title and description!</p>
+    
+    <textarea id="inputText" placeholder="Enter your topic..."></textarea><br>
+    <button onclick="generateSEO()">Generate</button>
+    
+    <div id="output"></div>
+
+    <script>
+        function generateSEO() {
+            let input = document.getElementById("inputText").value;
+            if (!input) {
+                alert("Please enter a topic!");
+                return;
+            }
+            
+            let title = `Best ${input} Tips You Need to Know in 2024!`;
+            let description = `Learn the top ${input} strategies that will boost your SEO rankings and traffic. Expert insights inside!`;
+            
+            document.getElementById("output").innerHTML = `
+                <h3>Generated Title:</h3><p>${title}</p>
+                <h3>Generated Meta Description:</h3><p>${description}</p>
+            `;
+        }
+    </script>
+</body>
+</html>
