@@ -3,38 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Meta Description Generator</title>
+    <title>Free SEO Tools</title>
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
-        textarea { width: 80%; height: 100px; margin: 10px; }
-        button { padding: 10px 20px; cursor: pointer; }
-        #output { margin-top: 20px; font-weight: bold; }
+        body { font-family: Arial, sans-serif; text-align: center; }
+        .container { max-width: 800px; margin: auto; }
+        input, textarea, button { width: 100%; margin: 10px 0; padding: 10px; }
+        .tool { border: 1px solid #ccc; padding: 20px; margin: 20px 0; }
     </style>
 </head>
 <body>
-    <h1>AI Meta Description & Title Generator</h1>
-    <p>Enter your topic, and AI will generate an SEO-friendly title and description!</p>
-    
-    <textarea id="inputText" placeholder="Enter your topic..."></textarea><br>
-    <button onclick="generateSEO()">Generate</button>
-    
-    <div id="output"></div>
+    <h1>Free SEO Tools</h1>
+    <div class="container">
+        
+        <!-- Keyword Density Checker -->
+        <div class="tool">
+            <h2>Keyword Density Checker</h2>
+            <textarea id="text" placeholder="Enter your text here..."></textarea>
+            <button onclick="checkKeywordDensity()">Check Density</button>
+            <p id="keywordDensityResult"></p>
+        </div>
+        
+        <!-- Meta Tag Generator -->
+        <div class="tool">
+            <h2>Meta Tag Generator</h2>
+            <input type="text" id="title" placeholder="Enter page title">
+            <textarea id="description" placeholder="Enter meta description"></textarea>
+            <button onclick="generateMetaTags()">Generate Meta Tags</button>
+            <p id="metaTagsResult"></p>
+        </div>
+        
+        <!-- Plagiarism Checker (Placeholder) -->
+        <div class="tool">
+            <h2>Plagiarism Checker</h2>
+            <p>(Coming Soon)</p>
+        </div>
+        
+        <!-- Backlink Analyzer (Placeholder) -->
+        <div class="tool">
+            <h2>Backlink Analyzer</h2>
+            <p>(Coming Soon)</p>
+        </div>
+        
+        <!-- Domain Authority Checker (Placeholder) -->
+        <div class="tool">
+            <h2>Domain Authority Checker</h2>
+            <p>(Coming Soon)</p>
+        </div>
+    </div>
 
     <script>
-        function generateSEO() {
-            let input = document.getElementById("inputText").value;
-            if (!input) {
-                alert("Please enter a topic!");
-                return;
-            }
-            
-            let title = `Best ${input} Tips You Need to Know in 2024!`;
-            let description = `Learn the top ${input} strategies that will boost your SEO rankings and traffic. Expert insights inside!`;
-            
-            document.getElementById("output").innerHTML = `
-                <h3>Generated Title:</h3><p>${title}</p>
-                <h3>Generated Meta Description:</h3><p>${description}</p>
-            `;
+        function checkKeywordDensity() {
+            let text = document.getElementById("text").value;
+            let words = text.split(/\s+/);
+            let wordCount = {};
+            words.forEach(word => { wordCount[word] = (wordCount[word] || 0) + 1; });
+            let result = JSON.stringify(wordCount, null, 2);
+            document.getElementById("keywordDensityResult").innerText = result;
+        }
+
+        function generateMetaTags() {
+            let title = document.getElementById("title").value;
+            let description = document.getElementById("description").value;
+            let metaTags = `<meta name='title' content='${title}'>\n<meta name='description' content='${description}'>`;
+            document.getElementById("metaTagsResult").innerText = metaTags;
         }
     </script>
 </body>
